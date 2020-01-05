@@ -1,46 +1,125 @@
 <template>
   <div id="app">
     <el-container>
-      <transition name="draw-left">
-        <el-aside style="background: gray" v-show="showLeft">
-          <div class="interfaceControlFrameHostControl">
-            <button id="isAsideVisible" @click="toolEventSlot"></button>
-          </div>
+        <el-aside class="aside" style="width: 20%;">
           <div class="interfaceControlFrame">
-            <div class="interfaceControlFrame_head"></div>
-            <div class="interfaceControlFrameHostContainer"></div>
+            <div class="interfaceControlFrame_head">
+              <img src="./assets/UESTC.png">
+            </div>
+            <div class="interfaceControlFrameHostContainer">
+              <el-col :span="2">
+                <el-menu
+                  :default-active="$route.path"
+                  router mode="horizontal"
+                  class="el-menu-vertical-demo"
+                  @open="handleOpen"
+                  @close="handleClose"
+                  background-color="#f2f2f2"
+                  text-color="#333333"
+                  active-text-color="#333333">
+                  <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name" class="nav-item">
+                    <template slot="title">
+                      <i class="el-icon-s-platform"></i>
+                      <span> {{ item.navItem }}</span>
+                    </template>
+                  </el-menu-item>
+                </el-menu>
+              </el-col>
+            </div>
           </div>
         </el-aside>
-      </transition>
-        <el-main style="background: aqua" v-show="showRight">
 
+        <el-main class="main">
+          <div class="main-head">
+            <p>欢迎使用</p>
+            <div class="time-table">
+              <div>{{nowTime_Hour}}</div>
+              <div>{{nowTime_Year}}</div>
+            </div>
+          </div>
+          <router-view  class="menu-right"/>
         </el-main>
     </el-container>
-    <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  components: {
-  },
-  data () {  /*定义data property的地方*/
-    return {
-      showLeft: true,
-      showRight: true,
+  export default {
+    data() {
+      return {
+        nowTime_Year:"",
+        nowTime_Hour:"",
+        navList:[
+          {name:'/components/Main',navItem:'首页'},
+          {name:'/components/Zhaobiao',navItem:'招标信息'},
+          {name:'/components/Xiangmu',navItem:'项目信息'},
+          {name:'/components/Jigou',navItem:'机构信息'},
+          {name:'/components/Zixun',navItem:'资讯信息'},
+        ] }
+    },
+    methods: {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      getTime(){
+        let yy = new Date().getFullYear();
+        let mm = new Date().getMonth()+1;
+        let dd = new Date().getDate();
+        let hh = new Date().getHours();
+        let mf = new Date().getMinutes()<10 ? '0'+new Date().getMinutes() : new Date().getMinutes();;
+        this.nowTime_Hour = hh+':'+mf;
+        this.nowTime_Year = yy+'-'+mm+'-'+dd;
+      },
+      currentTime(){
+        setInterval(this.getTime,500)
+      },
+    },
+    created(){
+      this.currentTime();
     }
-  },
-  methods: {
-    toolEventSlot()
-    {
-      this.showLeft = !this.showLeft;
-      console.log(this.showLeft);
-    }
-  },
-}
+  }
 </script>
 
 <style>
+  li{ list-style: none;}
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+  .menu-right{
+    background-color: #f3faff;
+    height:94%;
+    padding: 1px;
+  }
+  .nav-item{
+    height:40px;
+    text-align:center;
+    line-height:40px;
+  }
+  .nav-item.is-active {
+    background-color: #e4e4e4 !important;
+  }
+  .main-head{
+    border-bottom: 2px solid #d9d9d9;
+    height:60px;
+    background-color: white;
+    position: relative;
+    display:flex;
+    align-items:center;
+  }
+  .main-head p{
+    margin-left: auto;
+    margin-right: 25px;
+  }
+
+  .time-table{
+    width:110px;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -53,64 +132,46 @@ export default {
   position: relative;
 }
 
-el-aside{
+.aside{
   position: relative;
   z-index: 1;
-  width: 25%;
-  height: 1000px;
+  width: 20%;
+  height: 936px;
   display: inline-block;
   float:left;
   overflow: hidden;
 }
 
-el-main{
-
+.main{
   z-index: 1;
-  min-width: 75%;
-
-  height: 1000px;
+  width: 80%;
+  height: 928px;
   display: inline-block;
+  float:right;
 }
 
 .interfaceControlFrame{
   margin: 0px 0px 0px 0px;
-  height:100%;
-  width: 79%;
-  background-color: red;
+  height:936px;
+  width: 100%;
+
   float:right;
 }
 .interfaceControlFrame_head{
-  padding-top: 27px;
-  border-bottom: 1px solid #d9d9d9;
-  height:60px;
-  background-color: blue;
+  border-bottom: 2px solid #d9d9d9;
+  height:100px;
+  background-color: #e8e8e8;
+  position: relative;
 }
-  .interfaceControlFrameHostControl{
-    margin: 0px 0px 0px 0px;
-    height:100%;
-    width: 20%;
-    background-color: lightgray;
-    float:left;
-  }
-
-  #isAsideVisible{
-    height:25px;
-    width:100%;
-    background-color: yellow;
-    z-index:99;
-  }
-
-.draw-left-enter-active, .draw-left-leave-active {
-  transition: all 1s ease;
-}
-.draw-left-enter, .draw-left-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  width: 0;
-}
-
-.draw-right-enter-active, .draw-right-leave-active {
-  transition: all 1s ease;
-}
-.draw-right-enter, .draw-right-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.interfaceControlFrameHostContainer{
   width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
 }
+
+.interfaceControlFrame_head img{
+  height:100%;
+  width:auto;
+}
+
 </style>
