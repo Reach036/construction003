@@ -6,7 +6,7 @@
           <img src="../assets/dot.png">
           <span>数据总览</span>
         </div>
-          <span style="float:right; cursor: pointer;">刷新</span>
+          <button class="small button" style="float:right; cursor: pointer;">刷新</button>
       </div>
       <div class="rol_1_body">
         <div>

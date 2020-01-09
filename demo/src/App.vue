@@ -20,7 +20,7 @@
                   <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name" class="nav-item">
                     <template slot="title">
                       <i class="el-icon-s-platform"></i>
-                      <span> {{ item.navItem }}</span>
+                      <span style="cursor: pointer;"> {{ item.navItem }}</span>
                     </template>
                   </el-menu-item>
                 </el-menu>
@@ -28,7 +28,6 @@
             </div>
           </div>
         </el-aside>
-
         <el-main class="main">
           <div class="main-head">
             <p>欢迎使用</p>
@@ -37,7 +36,9 @@
               <div>{{nowTime_Year}}</div>
             </div>
           </div>
-          <router-view  class="menu-right"/>
+          <keep-alive>
+            <router-view  class="menu-right" v-if="$route.meta.keepAlive"/>
+          </keep-alive>
         </el-main>
     </el-container>
   </div>
@@ -55,7 +56,8 @@
           {name:'/components/Xiangmu',navItem:'项目信息'},
           {name:'/components/Jigou',navItem:'机构信息'},
           {name:'/components/Zixun',navItem:'资讯信息'},
-        ] }
+        ],
+      }
     },
     methods: {
       handleOpen(key, keyPath) {

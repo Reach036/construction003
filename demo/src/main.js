@@ -1,11 +1,19 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Element from 'element-ui'
 import VueScrollLock from 'vue-scroll-lock'
+import axios from "axios";
+import qs from 'qs';
+import base from './base';
 
+import '../static/css/common.css';
+
+Vue.use(base);
+Vue.prototype.$axios = axios
+// Vue.prototype.GLOBAL = base
+Vue.prototype.$qs = qs;
 Vue.use(VueScrollLock)
 Vue.use(Element)
 Vue.config.productionTip = false
@@ -19,3 +27,7 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+
+
+

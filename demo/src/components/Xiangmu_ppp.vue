@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <div class="menu_right_head">
-      <span style="float:left">当前位置:招标信息</span>
+      <span style="float:left">当前位置:项目信息>ppp项目</span>
       <button class="small button" style="float:right; cursor: pointer;"  @click="getData">刷新</button>
     </div>
     <div class="zhaobiao_body">
@@ -16,8 +16,8 @@
           <th>项目时间</th>
         </tr>
         <tr v-for="(item,i) in data.slice((this.currentPage-1)*15,(this.currentPage-1)*15+14)" :key="i"  :class="'cell'+(i%2)">
-          <td>{{item.project_type}}</td>
-          <td class="data_name" style="min-width:450px; text-align:left;"><a :href = "item.project_url">{{item.project_name}}</a></td>
+          <td>{{item.project_type}}项目</td>
+          <td class="data_name" style="min-width:450px; text-align:left;">{<a :href = "item.project_url">{{item.project_name}}</a></td>
           <td>{{item.project_area}}</td>
           <td>{{item.project_time}}</td>
         </tr>
@@ -43,12 +43,12 @@
       Loading,
     },
     data(){
-    return {
-      data:[],
-      pageCount: 1,
-      currentPage :1,
-      isConnected: false,
-      isConnecting: true,
+      return {
+        data:[],
+        pageCount: 1,
+        currentPage :1,
+        isConnected: false,
+        isConnecting: true,
       }
     },
     created() {
@@ -60,9 +60,9 @@
       },
       getData:function(){
         var _this= this;
-        this.data=[];
+        this.data = [];
         this.isConnecting = true;
-        this.requestData('zhaobiao',_this)
+        this.requestData('ppp',_this)
       }
     },
     mounted: function (){
@@ -76,6 +76,7 @@
     width:90%;
     height:auto;
     margin:0 auto 0 auto;
+    background-color: white;
     max-height:700px;
   }
   #tab ul{
@@ -93,6 +94,7 @@
   .head span{
     padding:5px;
   }
+
   .zhaobiao_body_item{
     width:100%;
     height:100%;
@@ -125,17 +127,17 @@
     padding:10px 0;
     margin:0;
   }
-  .zhaobiao_body_item td a{
-    color:black;
-    text-decoration: none;
-  }
-  .zhaobiao_body_item td a:hover{
-    color: darkgray;
-  }
   .cell0{
     background-color: #f2f2f2;
   }
   .data_name{
     cursor: pointer;
+  }
+  .data_name a:hover{
+    color: darkgray;
+  }
+  .data_name a{
+    color:black;
+    text-decoration: none;
   }
 </style>
