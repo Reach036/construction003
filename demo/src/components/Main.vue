@@ -6,13 +6,13 @@
           <img src="../assets/dot.png">
           <span>数据总览</span>
         </div>
-          <button class="small button" style="float:right; cursor: pointer;">刷新</button>
+          <button class="small button" style="float:right; cursor: pointer;" @click="getData">刷新</button>
       </div>
       <div class="rol_1_body">
         <div>
           <div>
             <p>采集网站数目</p>
-            <p>5</p>
+            <p>9</p>
           </div>
           <div>
             <img src="../assets/logo.png">
@@ -21,7 +21,7 @@
         <div>
           <div>
             <p>信息条目</p>
-            <p>200</p>
+            <p>{{this.data}}</p>
           </div>
           <div>
             <img src="../assets/logo.png">
@@ -66,7 +66,28 @@
 </template>
 
 <script>
-
+  export default {
+    data(){
+      return {
+        data:0,
+        isConnected: false,
+        isConnecting: true,
+      }
+    },
+    created() {
+      this.getData();
+    },
+    methods: {
+      getData:function(){
+        var _this= this;
+        this.isConnecting = true;
+        this.requestData('all',_this)
+      }
+    },
+    mounted: function (){
+      // this.getData();
+    }
+  }
 </script>
 
 <style scoped>

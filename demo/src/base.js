@@ -126,6 +126,19 @@ exports.install = function (Vue, options) {
         that.isConnecting = false;
       });
     }
+    else if(msg == 'all'){
+      this.$axios.get('http://120.26.144.75:8080/getCount',msg).then(function (response) {
+        console.log(response.data);
+        that.data= response.data.res;
+        that.isConnected = true;
+        that.isConnecting = false;
+      }).catch(function (error) {
+        console.log(error);
+        that.isConnected = false;
+        that.isConnecting = false;
+        that.data = '网络访问失败';
+      });
+    }
   }
 };
 // const countOfURL = '0'

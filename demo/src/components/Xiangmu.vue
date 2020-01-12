@@ -94,8 +94,7 @@
   }
   .xiangmu_body_items{
     width:100%;
-    max-height:700px;
-    background-color: white;
+    height:600px;
   }
   .xiangmu_body_item{
     width:44%;
