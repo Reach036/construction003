@@ -3,9 +3,11 @@
   <div id="body">
     <div id="map"></div>
   </div>
+
 </template>
 
 <script>
+  import '../../static/css/mapbox-gl.css';
   export default {
     data() {
       return {};
@@ -22,7 +24,7 @@
           "pk.eyJ1IjoicmVhY2gwMzYiLCJhIjoiY2p3ZzBhcGhxMTJsajQ1bzN3azVmaHQ5dCJ9.BoGnn7lsExEdxr6F0viGmw";
         var map = new this.$mapboxgl.Map({
           container: "map",
-          style: "mapbox://styles/mapbox/streets-v11",
+          style: "mapbox://styles/mapbox/satellite-v9",
           center: [137.9150899566626, 36.25956997955441],
           zoom: 5,
           // pitch: 60, //视野倾斜，0-60
@@ -33,6 +35,7 @@
         map.on("click", function(e) {
           console.log("点击");
         });
+
         map.addControl(new this.$mapboxgl.ScaleControl({
           maxWidth: 80,
           unit: 'metric'

@@ -98,3 +98,91 @@
 .button.small{
   padding: 4px 12px;
 }
+
+li{ list-style: none;}
+ul{
+  padding: 0;
+  margin: 0;
+}
+.menu-right{
+  background-color: #f3faff;
+  height:94%;
+  padding: 1px;
+}
+.nav-item{
+  height:40px;
+  text-align:center;
+  line-height:40px;
+}
+.nav-item.is-active {
+  background-color: #e4e4e4 !important;
+}
+.main-head{
+  border-bottom: 2px solid #d9d9d9;
+  height:60px;
+  background-color: white;
+  position: relative;
+  display:flex;
+  align-items:center;
+}
+.main-head p{
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+.time-table{
+  width:110px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.aside{
+  position: relative;
+  z-index: 1;
+  height: auto;
+  display: inline-block;
+  float:left;
+  overflow: hidden;
+}
+
+.main{
+  z-index: 1;
+  width: 88%;
+  height: auto;
+  display: inline-block;
+  float:right;
+}
+
+.interfaceControlFrame{
+  margin: 0px 0px 0px 0px;
+  height:936px;
+  width: 100%;
+  float:right;
+}
+.interfaceControlFrame_head{
+  border-bottom: 2px solid #d9d9d9;
+  height:10%;
+  background-color: #e8e8e8;
+  position: relative;
+}
+.interfaceControlFrameHostContainer{
+  width: 100%;
+  height: 90%;
+  background-color: #f2f2f2;
+}
+
+.interfaceControlFrame_head img{
+  height:100%;
+  width:auto;
+}

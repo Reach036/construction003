@@ -1,14 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/Main'
-import Jigou from '@/components/Jigou'
-import Xiangmu from '@/components/Xiangmu'
-import Xiangmu_vip from '@/components/Xiangmu_vip'
-import Xiangmu_shenpi from '@/components/Xiangmu_shenpi'
-import Xiangmu_nizaijian from '@/components/Xiangmu_nizaijian'
-import Xiangmu_ppp from '@/components/Xiangmu_ppp'
-import Zhaobiao from '@/components/Zhaobiao'
-import Zixun from '@/components/Zixun'
+import satellite from '@/components/satellite'
+import heatmap from '@/components/heatmap'
+import city from '@/components/city'
+import terrain from '@/components/terrain'
+import depth from '@/components/depth'
 
 Vue.use(Router)
 
@@ -25,63 +22,42 @@ export default new Router({
         keepAlive: true
       }
     }, {
-      path: '/components/Jigou',
-      name: 'Jigou',
-      component: Jigou,
+      path: '/components/satellite',
+      name: 'satellite',
+      component: satellite,
       meta: {
         keepAlive: true
       }
     }, {
-      path: '/components/Xiangmu',
-      name: 'Xiangmu',
-      component: Xiangmu,
+      path: '/components/heatmap',
+      name: 'heatmap',
+      component: heatmap,
       meta: {
         keepAlive: true
       }
     },
     {
-      path: '/components/Zhaobiao',
-      name: 'Zhaobiao',
-      component: Zhaobiao,
+      path: '/components/city',
+      name: 'city',
+      component: city,
       meta: {
         keepAlive: true
       }
     },{
-      path: '/components/Zixun',
-      name: 'Zixun',
-      component: Zixun,
+      path: '/components/terrain',
+      name: 'terrain',
+      component: terrain,
       meta: {
         keepAlive: true
       }
     },{
-      path: '/components/Xiangmu/Xiangmu_vip',
-      name: 'Xiangmu_vip',
-      component: Xiangmu_vip,
+      path: '/components/depth',
+      name: 'depth',
+      component: depth,
       meta: {
         keepAlive: true
       }
-    },{
-      path: '/components/Xiangmu/Xiangmu_shenpi',
-      name: 'Xiangmu_shenpi',
-      component: Xiangmu_shenpi,
-      meta: {
-        keepAlive: true
-      }
-    },{
-      path: '/components/Xiangmu/Xiangmu_nizaijian',
-      name: 'Xiangmu_nizaijian',
-      component: Xiangmu_nizaijian,
-      meta: {
-        keepAlive: true
-      }
-    },{
-      path: '/components/Xiangmu/Xiangmu_ppp',
-      name: 'Xiangmu_ppp',
-      component: Xiangmu_ppp,
-      meta: {
-        keepAlive: true
-      }
-    }
+    },
   ]
 })
 

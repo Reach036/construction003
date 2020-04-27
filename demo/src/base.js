@@ -15,7 +15,7 @@ exports.install = function (Vue, options) {
         that.isConnecting = false;
       });
     }
-    else if(msg == 'xiangmu'){
+    else if(msg == 'heatmap'){
       var urls = [
         'http://120.26.144.75:8080/showVipProject',
         'http://120.26.144.75:8080/showShenpiProject',
@@ -38,7 +38,7 @@ exports.install = function (Vue, options) {
         });
       }
     }
-    else if(msg == 'jigou'){
+    else if(msg == 'satellite'){
       var urls = [
         'http://120.26.144.75:8080/showSupplier',
         'http://120.26.144.75:8080/showProprietor',
@@ -66,58 +66,6 @@ exports.install = function (Vue, options) {
         console.log(response.data);
         that.data= response.data;
         that.pageCount =Math.ceil(that.data.length/4);
-        that.isConnected = true;
-        that.isConnecting = false;
-      }).catch(function (error) {
-        console.log(error);
-        that.isConnected = false;
-        that.isConnecting = false;
-      });
-    }
-    else if(msg == 'vip'){
-      this.$axios.get('http://120.26.144.75:8080/showVipProject',msg).then(function (response) {
-        console.log(response.data);
-        that.data= response.data;
-        that.pageCount =Math.ceil(that.data.length/15);
-        that.isConnected = true;
-        that.isConnecting = false;
-      }).catch(function (error) {
-        console.log(error);
-        that.isConnected = false;
-        that.isConnecting = false;
-      });
-    }
-    else if(msg == 'shenpi'){
-      this.$axios.get('http://120.26.144.75:8080/showShenpiProject',msg).then(function (response) {
-        console.log(response.data);
-        that.data= response.data;
-        that.pageCount =Math.ceil(that.data.length/15);
-        that.isConnected = true;
-        that.isConnecting = false;
-      }).catch(function (error) {
-        console.log(error);
-        that.isConnected = false;
-        that.isConnecting = false;
-      });
-    }
-    else if(msg == 'nizaijian'){
-      this.$axios.get('http://120.26.144.75:8080/showNizaijianProject',msg).then(function (response) {
-        console.log(response.data);
-        that.data= response.data;
-        that.pageCount =Math.ceil(that.data.length/15);
-        that.isConnected = true;
-        that.isConnecting = false;
-      }).catch(function (error) {
-        console.log(error);
-        that.isConnected = false;
-        that.isConnecting = false;
-      });
-    }
-    else if(msg == 'ppp'){
-      this.$axios.get('http://120.26.144.75:8080/showPppProject',msg).then(function (response) {
-        console.log(response.data);
-        that.data= response.data;
-        that.pageCount =Math.ceil(that.data.length/15);
         that.isConnected = true;
         that.isConnecting = false;
       }).catch(function (error) {

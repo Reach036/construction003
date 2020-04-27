@@ -7,9 +7,11 @@ import VueScrollLock from 'vue-scroll-lock'
 import axios from "axios";
 import qs from 'qs';
 import base from './base';
+import mapBoxGl from 'mapbox-gl'
 
 import '../static/css/common.css';
 
+Vue.prototype.$mapboxgl = mapBoxGl
 Vue.use(base);
 Vue.prototype.$axios = axios
 // Vue.prototype.GLOBAL = base

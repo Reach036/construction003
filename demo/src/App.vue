@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-        <el-aside class="aside" style="width: 20%;">
+        <el-aside class="aside" style="width: 12%;">
           <div class="interfaceControlFrame">
             <div class="interfaceControlFrame_head">
               <img src="./assets/UESTC.png">
@@ -51,11 +51,12 @@
         nowTime_Year:"",
         nowTime_Hour:"",
         navList:[
-          {name:'/components/Main',navItem:'首页'},
-          {name:'/components/Zhaobiao',navItem:'招标信息'},
-          {name:'/components/Xiangmu',navItem:'项目信息'},
-          {name:'/components/Jigou',navItem:'机构信息'},
-          {name:'/components/Zixun',navItem:'资讯信息'},
+          {name:'/components/Main',navItem:'街区地图'},
+          {name:'/components/city',navItem:'3D城市地图'},
+          {name:'/components/heatmap',navItem:'热力图'},
+          {name:'/components/satellite',navItem:'卫星影像图'},
+          {name:'/components/terrain',navItem:'地形图'},
+          {name:'/components/depth',navItem:'海洋深度图'},
         ],
       }
     },
@@ -86,94 +87,4 @@
 </script>
 
 <style>
-  li{ list-style: none;}
-  ul{
-    padding: 0;
-    margin: 0;
-  }
-  .menu-right{
-    background-color: #f3faff;
-    height:94%;
-    padding: 1px;
-  }
-  .nav-item{
-    height:40px;
-    text-align:center;
-    line-height:40px;
-  }
-  .nav-item.is-active {
-    background-color: #e4e4e4 !important;
-  }
-  .main-head{
-    border-bottom: 2px solid #d9d9d9;
-    height:60px;
-    background-color: white;
-    position: relative;
-    display:flex;
-    align-items:center;
-  }
-  .main-head p{
-    margin-left: auto;
-    margin-right: 25px;
-  }
-
-  .time-table{
-    width:110px;
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.aside{
-  position: relative;
-  z-index: 1;
-  width: 20%;
-  height: 936px;
-  display: inline-block;
-  float:left;
-  overflow: hidden;
-}
-
-.main{
-  z-index: 1;
-  width: 80%;
-  height: 928px;
-  display: inline-block;
-  float:right;
-}
-
-.interfaceControlFrame{
-  margin: 0px 0px 0px 0px;
-  height:936px;
-  width: 100%;
-
-  float:right;
-}
-.interfaceControlFrame_head{
-  border-bottom: 2px solid #d9d9d9;
-  height:100px;
-  background-color: #e8e8e8;
-  position: relative;
-}
-.interfaceControlFrameHostContainer{
-  width: 100%;
-  height: 100%;
-  background-color: #f2f2f2;
-}
-
-.interfaceControlFrame_head img{
-  height:100%;
-  width:auto;
-}
-
 </style>
